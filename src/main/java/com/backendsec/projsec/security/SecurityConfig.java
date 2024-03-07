@@ -22,7 +22,8 @@ public class SecurityConfig {
                             authorizeConfig.anyRequest().authenticated();
                         }
                 )
-                .formLogin(Customizer.withDefaults())
+                .oauth2Login(Customizer.withDefaults())
+                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()))
                 .build();
     }
 }
